@@ -1,0 +1,60 @@
+#include <string.h>
+
+#include <stdio.h>
+
+#include <string.h>
+#include <conio.h>
+    typedef struct{
+        int id;
+        int nota;
+
+    }t_aluno;
+
+void acharmaior( alu);
+void notasrepetidas(t_aluno alu[10]);
+
+void main()
+{
+    t_aluno aluno[10];
+
+    for(int i = 0; i < 10; i++){
+        aluno[i].id = i + 1;
+        aluno[i].nota = rand() %11;
+        printf(" a nota do aluno %i vale %i \n", aluno[i].id, aluno[i].nota);
+    }
+    acharmaior( aluno);
+    notasrepetidas(aluno);
+
+}
+
+void acharmaior( t_aluno alu[10]){
+int maior;
+maior = -11;
+     for(int i = 0; i < 10; i++){
+        if( maior < alu[i].nota){
+            maior = alu[i].nota;
+
+        }
+     }
+        printf(" a maior nota foi: %i", maior);
+}
+
+void notasrepetidas(t_aluno alu[10]){
+    int vetor[11], repetidas[11];
+    vetor[11] = {0,1,2,3,4,5,6,7,8,9,10};
+    for( int i = 0; i< 10; i++){
+        for( int j; j < 11; j++){
+            if( vetor[j] == alu[i].nota){
+                repetidas[j]++;
+            }
+        }
+    }
+    
+        for( int j; j < 11; j++){
+            printf(" a nota %i repete %i vezes ", vetor[j], repetidas[j]);
+
+        }
+}
+
+
+
